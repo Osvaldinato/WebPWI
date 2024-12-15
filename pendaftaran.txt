@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendaftaran Bimbel Online</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #000000, #434343);
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        form, .result {
+            width: 100%;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-size: 14px;
+        }
+        input, select, button {
+            width: 95%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 15px;
+            font-size: 14px;
+        }
+        input, select {
+            background: rgba(255, 255, 255, 0.2);
+            color: #000000;
+            border: 1px solid #000000;
+        }
+        input:focus, select:focus {
+            outline: none;
+            border-color: #ffc371;
+        }
+        button {
+            background: linear-gradient(to right, #ff5f6d, #ffc371);
+            color: #000000;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        button:hover {
+            transform: scale(1.05);
+        }
+        .back-link {
+            display: block;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #ffc371;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Pendaftaran Bimbel Online</h2>
+
+        <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $nama = htmlspecialchars($_POST['nama']);
+            $email = htmlspecialchars($_POST['email']);
+            $password = htmlspecialchars($_POST['password']);
+            $telepon = htmlspecialchars($_POST['telepon']);
+            $program = htmlspecialchars($_POST['program']);
+            $jadwal = htmlspecialchars($_POST['jadwal']);
+
+            echo "<div class='result'>";
+            echo "<h3>Data Pendaftaran</h3>";
+            echo "<p><strong>Nama Lengkap:</strong> $nama</p>";
+            echo "<p><strong>Email:</strong> $email</p>";
+            echo "<p><strong>Password:</strong> (Tersembunyi)</p>";
+            echo "<p><strong>Nomor Telepon:</strong> $telepon</p>";
+            echo "<p><strong>Program Bimbel:</strong> " . ucfirst($program) . "</p>";
+            echo "<p><strong>Jadwal:</strong> " . str_replace('_', ' dan ', ucfirst($jadwal)) . "</p>";
+            echo "<a href='pendaftaran_bimbel.php' class='back-link'>Kembali ke Form</a>";
+            echo "</div>";
+        } else {
+        ?>
+            <form action="" method="POST">
+                <label for="nama">Nama Lengkap:</label>
+                <input type="text" id="nama" name="nama" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+
+                <label for="telepon">Nomor Telepon:</label>
+                <input type="tel" id="telepon" name="telepon" required>
+
+                <label for="program">Pilih Program Bimbel:</label>
+                <select id="program" name="program" required>
+                    <option value="matematika">Matematika</option>
+                    <option value="fisika">Fisika</option>
+                    <option value="kimia">Kimia</option>
+                    <option value="bahasa_inggris">Bahasa Inggris</option>
+                </select>
+
+                <label for="jadwal">Pilih Jadwal:</label>
+                <select id="jadwal" name="jadwal" required>
+                    <option value="senin_rabu">Senin dan Rabu</option>
+                    <option value="selasa_kamis">Selasa dan Kamis</option>
+                    <option value="jumat_sabtu">Jumat dan Sabtu</option>
+                </select>
+
+                <button type="submit">Daftar</button>
+            </form>
+        <?php
+        }
+        ?>
+    </div>
+</body>
+</html>
+Nama: Rangga Pratama Wiradinata, Email: atyrillah555@gmail.com, Telepon: 082123560173, Program: matematika, Jadwal: senin-rabu
+Nama: Rangga Pratama Wiradinata, Email: atyrillah555@gmail.com, Telepon: 082123560173, Program: matematika, Jadwal: senin-rabu
+Nama: Rangga Pratama Wiradinata, Email: atyrillah555@gmail.com, Telepon: 082123560173, Program: matematika, Jadwal: senin-rabu
+Nama: Rangga Pratama Wiradinata, Email: atyrillah555@gmail.com, Telepon: 082123560173, Program: matematika, Jadwal: senin-rabu
+Nama: Rangga Pratama Wiradinata, Email: ranggawirandinata@gmail.com, Telepon: 082123560173, Program: fisika, Jadwal: senin-rabu
+Nama: Rangga Pratama Wiradinata, Email: ranggawirandinata@gmail.com, Telepon: 082123560173, Program: matematika, Jadwal: senin-rabu
+Nama: Rangga Pratama Wiradinata, Email: ranggawirandinata@gmail.com, Telepon: 082123560173, Program: matematika, Jadwal: senin-rabu
+Nama: Rangga Pratama Wiradinata, Email: ranggawirandinata@gmail.com, Telepon: 082123560173, Program: bahasa-inggris, Jadwal: jumat-sabtu
+Nama: Rangga Pratama Wiradinata, Email: ranggawirandinata@gmail.com, Telepon: 082123560173, Program: bahasa-inggris, Jadwal: selasa-kamis
+Nama: Rangga Pratama Wiradinata, Email: ranggawirandinata@gmail.com, Telepon: 082123560173, Program: bahasa-inggris, Jadwal: selasa-kamis
+Nama: Rangga Pratama Wiradinata, Email: ranggawirandinata@gmail.com, Telepon: 082123560173, Program: kimia, Jadwal: selasa-kamis
+Nama: Rangga Pratama Wiradinata, Email: ranggawirandinata@gmail.com, Telepon: 082123560173, Program: kimia, Jadwal: selasa-kamis
